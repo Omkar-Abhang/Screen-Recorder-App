@@ -1,0 +1,45 @@
+# Screen Recorder in Python
+
+This project is a simple screen recording application built using Python. It captures the screen, displays a live preview, and saves the output as an MP4 video file.
+
+## Features
+- Records the entire screen.
+- Saves the recording as `Recording.mp4`.
+- Displays a live preview.
+- Stops recording with `q`.
+
+## Prerequisites
+Install required libraries:
+```bash
+pip install pillow opencv-python numpy
+```
+
+## Usage
+1. Clone the repository and navigate to the directory:
+   ```bash
+   git clone https://github.com/Omkar-Abhang/Screen-Recorder-App.git
+   cd Screen-Recorder-App
+   ```
+2. Run the script:
+   ```bash
+   python index.py
+   ```
+3. Press `q` to stop recording.
+
+## Key Components
+- **Screen Capture:** Uses `Pillow.ImageGrab.grab()` to capture the screen.
+- **Video Writer:** Saves frames using OpenCV's `VideoWriter`:
+   ```python
+   codec = cv2.VideoWriter_fourcc(*"mp4v")
+   out = cv2.VideoWriter("Recording.mp4", codec, 60.0, (1920, 1080))
+   ```
+- **Live Preview:** Displays frames in a resizable OpenCV window.
+- **Exit Condition:** Stops recording when `q` is pressed.
+
+## Notes
+- `ImageGrab` may need additional setup on Linux under Wayland.
+- High frame rates (e.g., 60 FPS) may require more resources.
+
+## License
+Licensed under MIT. Use and modify freely.
+
